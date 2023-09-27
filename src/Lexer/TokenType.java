@@ -1,4 +1,4 @@
-package LexicalAnalyzer;
+package Lexer;
 
 public enum TokenType {
     IDENFR,

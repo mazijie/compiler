@@ -1,4 +1,4 @@
-package LexicalAnalyzer;
+package Lexer;
 
 import config.Config;
 import utils.Classifier;
@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 
-public class LexicalAnalyzer {
+public class Lexer {
 
-    private Map<String, TokenType> keywords = new HashMap<String, TokenType>() {{
+    private static Map<String, TokenType> keywords = new HashMap<String, TokenType>() {{
         put("main", TokenType.MAINTK);
         put("const", TokenType.CONSTTK);
         put("int", TokenType.INTTK);
@@ -50,19 +50,14 @@ public class LexicalAnalyzer {
         put("{",TokenType.LBRACE);
         put("}",TokenType.RBRACE);
     }};
-    private static final LexicalAnalyzer instance = new LexicalAnalyzer();
 
-    public static LexicalAnalyzer getInstance() {
-        return instance;
-    }
+    private static List<Token> tokens = new ArrayList<>();
 
-    private List<Token> tokens = new ArrayList<>();
-
-    public List<Token> getTokens() {
+    public static List<Token> getTokens() {
         return tokens;
     }
 
-    public void analyze(String content) throws Exception{
+    public static void analyze(String content) throws Exception{
         int len=content.length();
         int pos=0;
         int lineNumber=1;
@@ -171,11 +166,12 @@ public class LexicalAnalyzer {
     }
 
 
-    public void printLexAns() throws IOException
+    public static void printLexAns() throws IOException
     {
         FileWriter fileWriter = new FileWriter(Config.fileOutPath);
         for(Token token:tokens)
             fileWriter.write(token.toString());
         fileWriter.close();
     }
+
 }

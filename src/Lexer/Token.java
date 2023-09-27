@@ -1,6 +1,4 @@
-package LexicalAnalyzer;
-
-import LexicalAnalyzer.TokenType;
+package Lexer;
 
 public class Token {
     private TokenType type; // 类别码
@@ -21,7 +19,7 @@ public class Token {
         return lineNumber;
     }
 
-    public String content() {
+    public String getContent() {
         return content;
     }
 
