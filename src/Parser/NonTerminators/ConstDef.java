@@ -10,12 +10,12 @@ import Parser.Parser;
 import Parser.NTTypes;
 
 public class ConstDef {
-    Token indent;
-    List<Token> left;
-    List<ConstExp> constExps;
+    public Token indent;
+    public List<Token> left;
+    public List<ConstExp> constExps;
     List<Token> right;
     Token equal;
-    ConstInitVal constInitVal;
+    public ConstInitVal constInitVal;
     public ConstDef(Token indent, List<Token> left, List<ConstExp> constExps,List<Token>right,Token equal,ConstInitVal constInitVal) {
         this.indent=indent;
         this.left=left;

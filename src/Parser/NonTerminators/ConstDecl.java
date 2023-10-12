@@ -12,7 +12,7 @@ import Parser.NTTypes;
 public class ConstDecl {
     Token consttk;
     BType bType;
-    List<ConstDef> constDefs;
+    public List<ConstDef> constDefs;
     List<Token> commas;
     Token semicn;
     public ConstDecl(Token consttk, BType bType, List<ConstDef> constDefs, List<Token> commas,Token semicn) {

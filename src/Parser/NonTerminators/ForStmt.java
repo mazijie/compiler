@@ -8,9 +8,9 @@ import Parser.*;
 import java.io.IOException;
 
 public class ForStmt {
-    private LVal lVal;
-    private Token equal;
-    private Exp exp;
+    public LVal lVal;
+    public Token equal;
+    public Exp exp;
     public ForStmt(LVal lVal, Token equal, Exp exp)
     {
         this.lVal = lVal;

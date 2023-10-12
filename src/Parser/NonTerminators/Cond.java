@@ -7,7 +7,7 @@ import Parser.NTTypes;
 import java.io.IOException;
 
 public class Cond {
-    private LOrExp lOrExp;
+    public LOrExp lOrExp;
     public Cond(LOrExp lOrExp)
     {
         this.lOrExp=lOrExp;

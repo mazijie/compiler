@@ -9,12 +9,12 @@ import Parser.*;
 
 public class FuncDef {
     //FuncDef → FuncType Ident '(' [FuncFParams] ')' Block
-    private FuncType funcType;
-    private Token ident;
-    private Token left;
-    private FuncFParams funcFParams;
-    private Token right;
-    private Block block;
+    public FuncType funcType;
+    public Token ident;
+    public Token left;
+    public FuncFParams funcFParams;
+    public Token right;
+    public Block block;
     public FuncDef(FuncType funcType, Token ident, Token left, FuncFParams funcFParams, Token right, Block block){
         this.funcType = funcType;
         this.ident = ident;

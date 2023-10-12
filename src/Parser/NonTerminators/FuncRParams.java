@@ -9,7 +9,7 @@ import java.util.List;
 import Parser.*;
 
 public class FuncRParams {
-    private List<Exp> exps;
+    public List<Exp> exps;
     private List<Token> commas;
     public FuncRParams(List<Exp> exps,List<Token> commas) {
         this.exps=exps;

@@ -10,9 +10,9 @@ import java.io.IOException;
 public class LAndExp {
     //LAndExp → EqExp | LAndExp '&&' EqExp
     //去除左递归：LAndExp → EqExp | EqExp '&&' LAndExp
-    private EqExp eqExp;
-    private Token AndTK;
-    private LAndExp landExp;
+    public EqExp eqExp;
+    public Token AndTK;
+    public LAndExp landExp;
     public LAndExp(EqExp eqExp, Token AndTK, LAndExp landExp) {
         this.eqExp=eqExp;
         this.landExp=landExp;

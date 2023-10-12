@@ -8,7 +8,7 @@ import Parser.*;
 import java.io.IOException;
 
 public class Number {
-    private Token intconst;
+    public Token intconst;
     public Number(Token intconst) {
         this.intconst = intconst;
     }

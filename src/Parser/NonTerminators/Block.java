@@ -10,9 +10,9 @@ import java.util.List;
 
 public class Block {
     //Block → '{' { BlockItem } '}'
-    private Token left;
-    private Token right;
-    private List<BlockItem> blockItems;
+    public Token left;
+    public Token right;
+    public List<BlockItem> blockItems;
 
     public Block(Token left,List<BlockItem> blockItems,Token right){
         this.blockItems=blockItems;

@@ -13,9 +13,9 @@ public class EqExp {
     //EqExp → RelExp | EqExp ('==' | '!=') RelExp
     //去除左递归文法：EqExp → RelExp | RelExp ('==' | '!=') EqExp
     //BNF范式：EqExp → RelExp {('==' | '!=') EqExp}
-    private RelExp relExp;
-    private Token operand;
-    private EqExp eqExp;
+    public RelExp relExp;
+    public Token operand;
+    public EqExp eqExp;
     public EqExp(RelExp relExp,Token operand,EqExp eqExp) {
         this.relExp = relExp;
         this.operand = operand;

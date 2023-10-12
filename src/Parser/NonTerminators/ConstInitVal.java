@@ -9,10 +9,10 @@ import java.util.List;
 import Parser.*;
 
 public class ConstInitVal {
-    private ConstExp constExp;
+    public ConstExp constExp;
     private Token left;
     private Token right;
-    private List<ConstInitVal> constInitVals;
+    public List<ConstInitVal> constInitVals;
     private List<Token> commas;
 
     public ConstInitVal(ConstExp constExp, Token left, Token right, List<ConstInitVal> constInitVals, List<Token> commas) {

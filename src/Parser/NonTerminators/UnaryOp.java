@@ -7,7 +7,7 @@ import utils.IOUtils;
 import java.io.IOException;
 
 public class UnaryOp {
-    private Token token;
+    public Token token;
     public UnaryOp(Token token)
     {
         this.token=token;

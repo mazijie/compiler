@@ -7,7 +7,7 @@ import Parser.*;
 import java.io.IOException;
 
 public class Exp {
-    private AddExp addExp;
+    public AddExp addExp;
     public Exp(AddExp addExp){
         this.addExp=addExp;
     }

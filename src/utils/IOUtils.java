@@ -37,4 +37,10 @@ public class IOUtils {
             }
         }
     }
+
+    public static void write_err(String value) throws IOException {
+        FileWriter fileWriter = new FileWriter(Config.errorOutPath,true);
+        fileWriter.write(value);
+        fileWriter.close();
+    }
 }

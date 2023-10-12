@@ -7,14 +7,14 @@ import java.io.IOException;
 import Parser.*;
 
 public class UnaryExp {
-    private PrimaryExp primaryExp;
-    private Token ident;
-    private Token left;
-    private Token right;
-    private FuncRParams funcRParams;
+    public PrimaryExp primaryExp;
+    public Token ident;
+    public Token left;
+    public Token right;
+    public FuncRParams funcRParams;
 
-    private UnaryExp unaryExp;
-    private UnaryOp unaryOp;
+    public UnaryExp unaryExp;
+    public UnaryOp unaryOp;
     public UnaryExp(PrimaryExp primaryExp,Token ident,Token left,Token right, FuncRParams funcRParams, UnaryOp unaryOp, UnaryExp unaryExp){
         this.primaryExp = primaryExp;
         this.ident = ident;

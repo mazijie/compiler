@@ -8,11 +8,11 @@ import java.io.IOException;
 import Parser.*;
 
 public class PrimaryExp {
-    private Token left;
-    private Token right;
-    private Exp exp;
-    private LVal lVal;
-    private Number number;
+    public Token left;
+    public Token right;
+    public Exp exp;
+    public LVal lVal;
+    public Number number;
     public PrimaryExp(Token left, Token right,Exp exp,LVal lVal,Number number) {
         this.left = left;
         this.right = right;

@@ -9,10 +9,10 @@ import java.util.List;
 import Parser.*;
 
 public class LVal {
-    private Token ident;
-    private List<Token> left;
-    private List<Token> right;
-    private List<Exp> exps;
+    public Token ident;
+    public List<Token> left;
+    public List<Token> right;
+    public List<Exp> exps;
     public LVal(Token ident, List<Token> left, List<Token> right, List<Exp> exps) {
         this.ident = ident;
         this.left = left;

@@ -9,12 +9,12 @@ import java.util.List;
 import Parser.*;
 
 public class VarDef {
-    private Token ident;
-    private List<Token> left;
-    private List<Token> right;
-    private List<ConstExp> constExps;
-    private Token equal;
-    private InitVal initVal;
+    public Token ident;
+    public List<Token> left;
+    public List<Token> right;
+    public List<ConstExp> constExps;
+    public Token equal;
+    public InitVal initVal;
     public VarDef(Token ident, List<Token> left, List<ConstExp> constExps,
                   List<Token> right,Token equal, InitVal initVal) {
         this.ident = ident;

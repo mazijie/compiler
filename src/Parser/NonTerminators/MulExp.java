@@ -10,9 +10,9 @@ import java.io.IOException;
 public class MulExp {
     //MulExp → UnaryExp | MulExp ('*' | '/' | '%') UnaryExp
     //去除左递归：MulExp → UnaryExp | UnaryExp ('*' | '/' | '%') MulExp
-    private UnaryExp unaryExp;
-    private Token op;
-    private MulExp mulExp;
+    public UnaryExp unaryExp;
+    public Token op;
+    public MulExp mulExp;
     public MulExp(UnaryExp unaryExp, Token op,MulExp mulExp){
         this.unaryExp = unaryExp;
         this.op = op;

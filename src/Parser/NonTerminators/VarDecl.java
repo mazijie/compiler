@@ -9,10 +9,10 @@ import java.util.List;
 import Parser.*;
 
 public class VarDecl {
-    private BType bType;
-    private List<VarDef> varDefs;
-    private List<Token> commas;
-    private Token semicn;
+    public BType bType;
+    public List<VarDef> varDefs;
+    public List<Token> commas;
+    public Token semicn;
     public VarDecl(BType bType, List<VarDef> varDef, List<Token> commas, Token semicn) {
         this.bType=bType;
         this.varDefs=varDef;

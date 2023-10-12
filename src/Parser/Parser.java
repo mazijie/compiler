@@ -1,4 +1,6 @@
 package Parser;
+import Errors.ErrorRecord;
+import Errors.ErrorType;
 import Exceptions.CompileException;
 import Lexer.Token;
 import Lexer.TokenType;
@@ -13,7 +15,7 @@ import java.util.Map;
 
 public class Parser {
     private static List<Token> tokens;
-    private static CompUnit compUnit;
+    public static CompUnit compUnit;
     private static int pos=0;
 
     public static Map<NTTypes,String> NTTypesToString=new HashMap<>(){{
@@ -242,7 +244,7 @@ public class Parser {
         Token left=tokens.get(pos);
         compare(TokenType.LPARENT);
         FuncFParams funcFParams=null;
-        if(tokens.get(pos).getType()!=TokenType.RPARENT){
+        if(tokens.get(pos).getType()==TokenType.INTTK){
             funcFParams=buildFuncFParams();
         }
         Token right=tokens.get(pos);
@@ -574,7 +576,7 @@ public class Parser {
             compare(TokenType.IDENFR);
             left=tokens.get(pos);
             compare(TokenType.LPARENT);
-            if(tokens.get(pos).getType()!=TokenType.RPARENT){
+            if(tokens.get(pos).getType()==TokenType.IDENFR||tokens.get(pos).getType()==TokenType.INTCON){
                 funcRParams=buildFuncRParams();
             }
             right=tokens.get(pos);
@@ -725,6 +727,18 @@ public class Parser {
         if(tokens.get(pos).getType()==type)
         {
             if(pos<tokens.size()-1) pos++;
+        }
+        else if(type==TokenType.SEMICN){
+            //缺少分号
+            ErrorRecord.addError(tokens.get(pos-1).getLine(),tokens.get(pos-1).getIndex(), ErrorType.i);
+        }
+        else if(type==TokenType.RPARENT){
+            //缺少右小括号
+            ErrorRecord.addError(tokens.get(pos-1).getLine(),tokens.get(pos-1).getIndex(), ErrorType.j);
+        }
+        else if(type==TokenType.RBRACK){
+            //缺少右中括号
+            ErrorRecord.addError(tokens.get(pos-1).getLine(),tokens.get(pos-1).getIndex(), ErrorType.k);
         }
         else {
             System.out.println("The Token Error Happens at: "+pos+"/"+tokens.size());

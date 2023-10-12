@@ -9,11 +9,11 @@ import java.util.List;
 import Parser.*;
 
 public class FuncFParam {
-    private BType bType;
-    private Token ident;
-    private List<Token> left;
-    private List<Token> right;
-    private List<ConstExp> constExps;
+    public BType bType;
+    public Token ident;
+    public List<Token> left;
+    public List<Token> right;
+    public List<ConstExp> constExps;
     public FuncFParam(BType bType, Token ident, List<Token> left,List<Token> right,List<ConstExp> constExps)
     {
         this.bType = bType;

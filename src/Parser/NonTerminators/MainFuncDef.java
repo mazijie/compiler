@@ -8,11 +8,11 @@ import java.io.IOException;
 import Parser.*;
 
 public class MainFuncDef {
-    private Token inttk;
-    private Token maintk;
-    private Token left;
-    private Token right;
-    private Block block;
+    public Token inttk;
+    public Token maintk;
+    public Token left;
+    public Token right;
+    public Block block;
     public MainFuncDef(Token inttk, Token maintk, Token left, Token right, Block block) {
         this.inttk = inttk;
         this.maintk = maintk;

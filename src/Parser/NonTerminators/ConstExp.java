@@ -6,7 +6,7 @@ import Parser.*;
 import java.io.IOException;
 
 public class ConstExp {
-    private final AddExp addExp;
+    public final AddExp addExp;
     public ConstExp(AddExp addExp){
         this.addExp = addExp;
     }

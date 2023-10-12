@@ -10,9 +10,9 @@ import Parser.*;
 
 public class InitVal {
     private int type;
-    private Exp exp;
+    public Exp exp;
     private Token left;
-    private List<InitVal> initVals;
+    public List<InitVal> initVals;
     private Token right;
     private List<Token> commas;
     public InitVal(Exp exp){

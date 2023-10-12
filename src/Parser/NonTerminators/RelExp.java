@@ -10,9 +10,9 @@ import java.io.IOException;
 public class RelExp {
     //RelExp → AddExp | RelExp ('<' | '>' | '<=' | '>=') AddExp
     //去除左递归：RelExp → AddExp | AddExp ('<' | '>' | '<=' | '>=') RelExp
-    private AddExp addExp;
-    private Token token;
-    private RelExp relExp;
+    public AddExp addExp;
+    public Token token;
+    public RelExp relExp;
     public RelExp(AddExp addExp, Token token, RelExp relExp){
         this.relExp = relExp;
         this.token = token;

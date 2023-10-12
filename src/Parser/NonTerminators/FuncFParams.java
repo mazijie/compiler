@@ -9,8 +9,8 @@ import java.util.List;
 import Parser.*;
 
 public class FuncFParams {
-    private List<FuncFParam> funcFParams;
-    private List<Token> commas;
+    public List<FuncFParam> funcFParams;
+    public List<Token> commas;
     public FuncFParams(List<FuncFParam> funcFP,List<Token> commas) {
         this.funcFParams=funcFP;
         this.commas=commas;

@@ -1,5 +1,8 @@
 package Lexer;
 
+import Errors.ErrorDetect;
+import Errors.ErrorRecord;
+import Errors.ErrorType;
 import config.Config;
 import utils.Classifier;
 
@@ -70,7 +73,7 @@ public class Lexer {
                         tmp += content.charAt(pos);
                         pos++;
                     }
-                    tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.INTCON), tmp,lineNumber));
+                    tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.INTCON), tmp,lineNumber,tokens.size()));
                 }
                 else if(Classifier.isWordHead(content.charAt(pos))){
                     String tmp="";
@@ -78,7 +81,7 @@ public class Lexer {
                         tmp += content.charAt(pos);
                         pos++;
                     }
-                    tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber));
+                    tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber,tokens.size()));
                 }
                 else if(Classifier.isStringBorder(content.charAt(pos))){
                     String tmp="\"";
@@ -88,22 +91,43 @@ public class Lexer {
                         pos++;
                     }
                     tmp+="\"";
-                    tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.STRCON), tmp,lineNumber));
+                    ErrorDetect.checkStr(lineNumber,tokens.size(),tmp);
+                    tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.STRCON), tmp,lineNumber,tokens.size()));
                     pos++;
                 }
+//                else if(Classifier.isStringBorder(content.charAt(pos))){
+//                    String tmp="\"";
+//                    pos++;
+//                    while(pos<len&& !Classifier.isStringBorder(content.charAt(pos))){
+//                        ErrorDetect.checkLegalChar(lineNumber,tokens.size(),content.charAt(pos));
+//                        if(content.charAt(pos)==92&&content.charAt(pos+1)!='n')
+//                        {
+//                            ErrorRecord.addError(lineNumber,tokens.size(), ErrorType.a);
+//                        }
+//                        if(content.charAt(pos)==37&&content.charAt(pos+1)!='d')
+//                        {
+//                            ErrorRecord.addError(lineNumber,tokens.size(), ErrorType.a);
+//                        }
+//                        tmp+=content.charAt(pos);
+//                        pos++;
+//                    }
+//                    tmp+="\"";
+//                    tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.STRCON), tmp,lineNumber,tokens.size()));
+//                    pos++;
+//                }
                 else if(Classifier.isWaitEqual(content.charAt(pos))){
                     if(pos+1<len&&content.charAt(pos+1)=='=')
                     {
                         String tmp="";
                         tmp+=content.charAt(pos);
                         tmp+='=';
-                        tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber));
+                        tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber,tokens.size()));
                         pos+=2;
                     }
                     else {
                         String tmp="";
                         tmp+=content.charAt(pos);
-                        tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber));
+                        tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber,tokens.size()));
                         pos++;
                     }
                 }
@@ -113,7 +137,7 @@ public class Lexer {
                         String tmp="";
                         tmp+=content.charAt(pos);
                         tmp+='&';
-                        tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber));
+                        tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber,tokens.size()));
                         pos+=2;
                     }
                     else {
@@ -126,7 +150,7 @@ public class Lexer {
                         String tmp="";
                         tmp+=content.charAt(pos);
                         tmp+='|';
-                        tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber));
+                        tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber,tokens.size()));
                         pos+=2;
                     }
                     else {
@@ -142,23 +166,23 @@ public class Lexer {
                     }
                     else if(pos+1<len&&content.charAt(pos+1)=='*')
                     {
-                        while(pos<len&&(!(content.charAt(pos-1)=='*'&&content.charAt(pos)=='/')))
+                        while(pos<len&&(!(content.charAt(pos)=='*'&&content.charAt(pos+1)=='/')))
                         {
                             pos++;
                             if(content.charAt(pos)=='\n') lineNumber++;
                         }
-                        pos++;
+                        pos+=2;
                     }
                     else {
                         String tmp="/";
-                        tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber));
+                        tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber,tokens.size()));
                         pos++;
                     }
                 }
                 else if(Classifier.isSingleDivider(content.charAt(pos))){
                     String tmp="";
                     tmp+=content.charAt(pos);
-                    tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber));
+                    tokens.add(new Token(keywords.getOrDefault(tmp, TokenType.IDENFR), tmp,lineNumber,tokens.size()));
                     pos++;
                 }
                 else pos++;

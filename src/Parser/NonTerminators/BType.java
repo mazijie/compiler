@@ -6,7 +6,7 @@ import utils.IOUtils;
 import java.io.IOException;
 
 public class BType {
-    private Token token;
+    public Token token;
     //"int"
     public BType(Token token){
         this.token = token;

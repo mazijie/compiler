@@ -1,11 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="668be71d-b386-42c5-95c3-a44b4ad36063" name="变更" comment="" />
+    <list default="true" id="668be71d-b386-42c5-95c3-a44b4ad36063" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Errors/Error.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Errors/ErrorRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Errors/ErrorType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Errors/error.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SymbolTable/ArraySymbol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SymbolTable/FuncParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SymbolTable/FuncSymbol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SymbolTable/FuncType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SymbolTable/Symbol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SymbolTable/SymbolType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SymbolTable/Table.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SymbolTable/TableManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lexer/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lexer/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lexer/Token.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/AddExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/AddExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/BType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/BType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/BlockItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/BlockItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/CompUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/CompUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Cond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Cond.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstDecl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstDecl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstInitVal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstInitVal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Decl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Decl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/EqExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/EqExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Exp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Exp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/ForStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/ForStmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncFParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncFParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncFParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncFParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncRParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncRParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/InitVal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/InitVal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/LAndExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/LAndExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/LOrExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/LOrExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/LVal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/LVal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/MainFuncDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/MainFuncDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/MulExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/MulExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Number.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Number.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/PrimaryExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/PrimaryExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/RelExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/RelExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Stmt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/UnaryExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/UnaryExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/UnaryOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/UnaryOp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/VarDecl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/VarDecl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/VarDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/VarDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/testfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/IOUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/IOUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/testfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/testfile.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2VKykoFd8paAUBsbyzU53bKYO1p" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -13,13 +86,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zijie/Desktop/课程文件/编译/实验/词法分析尝试/cifafenxi/src/utils&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zijie\Desktop\课程文件\编译\实验\词法分析尝试\cifafenxi\src\utils" />
+      <recent name="C:\Users\zijie\Desktop\课程文件\编译\实验\词法分析尝试\cifafenxi" />
+      <recent name="C:\Users\zijie\Desktop\课程文件\编译\实验\词法分析尝试\cifafenxi\src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -28,8 +115,43 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1694599214571</updated>
+      <workItem from="1694599216543" duration="4163000" />
+      <workItem from="1694650245626" duration="12152000" />
+      <workItem from="1694956930858" duration="127000" />
+      <workItem from="1694957250299" duration="3193000" />
+      <workItem from="1695014768729" duration="1027000" />
+      <workItem from="1695017080611" duration="7000" />
+      <workItem from="1695017176417" duration="769000" />
+      <workItem from="1695083438655" duration="768000" />
+      <workItem from="1695106628563" duration="1238000" />
+      <workItem from="1695375493460" duration="845000" />
+      <workItem from="1695404222139" duration="5424000" />
+      <workItem from="1695439071339" duration="13312000" />
+      <workItem from="1695552700132" duration="36143000" />
+      <workItem from="1695714748896" duration="9146000" />
+      <workItem from="1695772819844" duration="3592000" />
+      <workItem from="1695793879353" duration="600000" />
+      <workItem from="1695795489114" duration="1487000" />
+      <workItem from="1696052884026" duration="127000" />
+      <workItem from="1696056859927" duration="322000" />
+      <workItem from="1696057397919" duration="106000" />
+      <workItem from="1696070270348" duration="299000" />
+      <workItem from="1696079257410" duration="220000" />
+      <workItem from="1696082611148" duration="15000" />
+      <workItem from="1696082814940" duration="23000" />
+      <workItem from="1696151078423" duration="9000" />
+      <workItem from="1696320957708" duration="832000" />
+      <workItem from="1696749156023" duration="16000" />
+      <workItem from="1696816025589" duration="26000" />
+      <workItem from="1696820726273" duration="1156000" />
+      <workItem from="1696844460959" duration="38829000" />
+      <workItem from="1697004054095" duration="5393000" />
+      <workItem from="1697127442782" duration="4365000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

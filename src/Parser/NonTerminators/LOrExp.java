@@ -10,9 +10,9 @@ import java.io.IOException;
 public class LOrExp {
     //LOrExp → LAndExp | LOrExp '||' LAndExp
     //去除左递归：LOrExp → LAndExp | LAndExp '||' LOrExp
-    private LAndExp lAndExp;
-    private Token OrTK;
-    private LOrExp lOrExp;
+    public LAndExp lAndExp;
+    public Token OrTK;
+    public LOrExp lOrExp;
     public LOrExp(LAndExp lAndExp,Token OrTK,LOrExp lOrExp){
         this.lAndExp=lAndExp;
         this.lOrExp=lOrExp;

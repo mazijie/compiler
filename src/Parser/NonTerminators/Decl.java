@@ -3,8 +3,8 @@ package Parser.NonTerminators;
 import java.io.IOException;
 
 public class Decl {
-    private ConstDecl constDecl;
-    private VarDecl varDecl;
+    public ConstDecl constDecl;
+    public VarDecl varDecl;
     public Decl(ConstDecl constDecl, VarDecl varDecl) {
         this.constDecl=constDecl;
         this.varDecl=varDecl;

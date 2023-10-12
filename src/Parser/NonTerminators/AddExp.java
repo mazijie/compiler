@@ -12,9 +12,9 @@ public class AddExp {
     //AddExp → MulExp | AddExp ('+' | '−') MulExp
     //取消左递归：AddExp → MulExp | MulExp ('+' | '−') AddExp
     //BNF范式：AddExp → MulExp {('+' | '−') AddExp}
-    private MulExp mulExp;
-    private Token operand;
-    private AddExp addExp;
+    public MulExp mulExp;
+    public Token operand;
+    public AddExp addExp;
     public AddExp(MulExp mulExp,Token operand,AddExp addExp){
         this.mulExp=mulExp;
         this.operand=operand;

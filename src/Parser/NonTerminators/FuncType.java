@@ -8,7 +8,7 @@ import java.io.IOException;
 import Parser.*;
 
 public class FuncType {
-    private Token tk;
+    public Token tk;
     public FuncType(Token tk)
     {
         this.tk=tk;
