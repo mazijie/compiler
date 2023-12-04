@@ -6,6 +6,7 @@ import Lexer.Token;
 import Lexer.TokenType;
 import Parser.NonTerminators.*;
 import Parser.NonTerminators.Number;
+import utils.Boom;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -576,7 +577,7 @@ public class Parser {
             compare(TokenType.IDENFR);
             left=tokens.get(pos);
             compare(TokenType.LPARENT);
-            if(tokens.get(pos).getType()==TokenType.IDENFR||tokens.get(pos).getType()==TokenType.INTCON){
+            if(tokens.get(pos).getType()!=TokenType.RPARENT){
                 funcRParams=buildFuncRParams();
             }
             right=tokens.get(pos);

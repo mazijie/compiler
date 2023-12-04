@@ -4,62 +4,91 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="668be71d-b386-42c5-95c3-a44b4ad36063" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Errors/Error.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Errors/ErrorRecord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Errors/ErrorType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Errors/error.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SymbolTable/ArraySymbol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SymbolTable/FuncParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SymbolTable/FuncSymbol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SymbolTable/FuncType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SymbolTable/Symbol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SymbolTable/SymbolType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SymbolTable/Table.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SymbolTable/TableManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="668be71d-b386-42c5-95c3-a44b4ad36063" name="变更" comment="错误处理">
+      <change afterPath="$PROJECT_DIR$/compare.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Errors/ErrorDetect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Array/Array.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Array/ArrayType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/ICMPType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/IRBuildFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/IRModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/NewSymbol/NewSymbolManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/NewSymbol/NewSymbolTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Type/PointerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Type/Type.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Type/ValueType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Use.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Argument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/BasicBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Const.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/ConstFloat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/ConstInteger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Function.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/GlobalVar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ADD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ALLOCA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/AND.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/BR.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/CALL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/GETELEMENTPTR.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ICMP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/Instruction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/InstructionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/LOAD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/MUL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/OR.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/PHI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/RET.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/SDIV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/SREM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/STORE.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/SUB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ZEXTTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/Value.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Value/VarPointer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/Visitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IR/VisitorOP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/AddressManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/BinaryRegImmCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/BinaryRegRegCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/BrCondCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/DIVCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/JALCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/JRCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/JumpCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/LoadAddressCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/LoadImmCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/LoadWordCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/MFHICode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/MIPSCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/MoveCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/NopCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/StoreWordCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/SyscallCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Label.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/MIPSGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/MIPS约定.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/Register.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/RegisterManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/RegisterType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/Target.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/BRForTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/BRManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/BRTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Boom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Calculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Compiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lexer/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lexer/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lexer/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lexer/Token.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/AddExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/AddExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/BType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/BType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/BlockItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/BlockItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/CompUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/CompUnit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Cond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Cond.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstDecl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstDecl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstInitVal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/ConstInitVal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Decl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Decl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/EqExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/EqExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Exp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Exp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/ForStmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/ForStmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncFParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncFParam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncFParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncFParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncRParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncRParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/FuncType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/InitVal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/InitVal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/LAndExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/LAndExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/LOrExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/LOrExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/LVal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/LVal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/MainFuncDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/MainFuncDef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/MulExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/MulExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Number.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Number.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/PrimaryExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/PrimaryExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/RelExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/RelExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/Stmt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/Stmt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/UnaryExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/UnaryExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/UnaryOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/UnaryOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/VarDecl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/VarDecl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/NonTerminators/VarDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/NonTerminators/VarDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Errors/ErrorRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Errors/ErrorRecord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SymbolTable/FuncSymbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable/FuncSymbol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SymbolTable/Symbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable/Symbol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SymbolTable/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SymbolTable/TableManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable/TableManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/testfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/testfile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/IOUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/IOUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/testfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/testfile.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +98,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
       </list>
@@ -79,6 +109,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2VKykoFd8paAUBsbyzU53bKYO1p" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -92,20 +125,44 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/zijie/Desktop/课程文件/编译/实验/词法分析尝试/cifafenxi/src/utils&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zijie/Desktop/课程文件/编译/实验/词法分析尝试/Compiler&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zijie\Desktop\课程文件\编译\实验\词法分析尝试\cifafenxi\src\IR" />
+      <recent name="C:\Users\zijie\Desktop\课程文件\编译\实验\词法分析尝试\cifafenxi\src" />
       <recent name="C:\Users\zijie\Desktop\课程文件\编译\实验\词法分析尝试\cifafenxi\src\utils" />
       <recent name="C:\Users\zijie\Desktop\课程文件\编译\实验\词法分析尝试\cifafenxi" />
-      <recent name="C:\Users\zijie\Desktop\课程文件\编译\实验\词法分析尝试\cifafenxi\src" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="MIPS.Code" />
+      <recent name="IR" />
+      <recent name="IR.Value" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="IR" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Compiler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Compiler" />
+      <module name="Compiler" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.Compiler" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -146,8 +203,71 @@
       <workItem from="1696820726273" duration="1156000" />
       <workItem from="1696844460959" duration="38829000" />
       <workItem from="1697004054095" duration="5393000" />
-      <workItem from="1697127442782" duration="4365000" />
+      <workItem from="1697127442782" duration="5095000" />
+      <workItem from="1697305373658" duration="431000" />
+      <workItem from="1697373345972" duration="107000" />
+      <workItem from="1697458682166" duration="200000" />
+      <workItem from="1697963765142" duration="358000" />
+      <workItem from="1697964328814" duration="682000" />
+      <workItem from="1698029371303" duration="906000" />
+      <workItem from="1698484791675" duration="7032000" />
+      <workItem from="1698585363488" duration="704000" />
+      <workItem from="1698713776170" duration="17519000" />
+      <workItem from="1698814822550" duration="27000" />
+      <workItem from="1698814862311" duration="42388000" />
+      <workItem from="1699101203113" duration="37595000" />
+      <workItem from="1699212784895" duration="696000" />
+      <workItem from="1699252385637" duration="25719000" />
+      <workItem from="1699315797873" duration="20239000" />
+      <workItem from="1699347900765" duration="240000" />
+      <workItem from="1699348151934" duration="56000" />
+      <workItem from="1699348218734" duration="115000" />
+      <workItem from="1699348354028" duration="430000" />
+      <workItem from="1699360537136" duration="50000" />
+      <workItem from="1699404255944" duration="6362000" />
+      <workItem from="1699439097851" duration="12118000" />
+      <workItem from="1699499371105" duration="6417000" />
+      <workItem from="1699625422164" duration="69000" />
+      <workItem from="1699625501966" duration="8494000" />
+      <workItem from="1699687125453" duration="12000" />
+      <workItem from="1699765797694" duration="1962000" />
+      <workItem from="1699859381144" duration="30239000" />
+      <workItem from="1699958731221" duration="16000" />
+      <workItem from="1699980363178" duration="45006000" />
+      <workItem from="1700099072914" duration="19000" />
+      <workItem from="1700100205968" duration="508000" />
+      <workItem from="1700123212718" duration="1441000" />
+      <workItem from="1700306311547" duration="202000" />
+      <workItem from="1700318229886" duration="20726000" />
+      <workItem from="1700393831659" duration="33000" />
+      <workItem from="1700448882925" duration="165000" />
+      <workItem from="1700449304808" duration="7000" />
+      <workItem from="1700463423364" duration="610000" />
+      <workItem from="1700560003394" duration="1405000" />
+      <workItem from="1700565482297" duration="9000" />
+      <workItem from="1700613265447" duration="19465000" />
+      <workItem from="1700642441802" duration="3103000" />
+      <workItem from="1700815488349" duration="3137000" />
+      <workItem from="1700891671664" duration="50000" />
+      <workItem from="1701067519707" duration="108000" />
+      <workItem from="1701067720392" duration="44000" />
+      <workItem from="1701067976982" duration="16313000" />
+      <workItem from="1701130057625" duration="5985000" />
+      <workItem from="1701147477044" duration="17377000" />
+      <workItem from="1701173104967" duration="619000" />
+      <workItem from="1701174727488" duration="48986000" />
+      <workItem from="1701302995591" duration="5442000" />
+      <workItem from="1701530990254" duration="150000" />
+      <workItem from="1701699792398" duration="12408000" />
     </task>
+    <task id="LOCAL-00001" summary="错误处理">
+      <created>1697132481003</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697132481003</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,5 +283,34 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="错误处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="错误处理" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Parser.NonTerminators.Number" memberName="intconst" />
+        <PinnedItemInfo parentTag="Parser.NonTerminators.Exp" memberName="addExp" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="NewSymbolManager.curTable.globalVars" language="JAVA" />
+        <watch expression="curFunction.basicBlocks" language="JAVA" />
+        <watch expression="curFunction" language="JAVA" />
+        <watch expression="NewSymbolManager.curTable" language="JAVA" custom="IR.NewSymbol.NewSymbolManager" />
+        <watch expression="module" language="JAVA" custom="IR.IRModule" />
+        <watch expression="tokens.get(pos)" language="JAVA" />
+        <watch expression="funcRParams" language="JAVA" />
+        <watch expression="TableManager.getMainTable()" language="JAVA" />
+        <watch expression="value.name" language="JAVA" />
+        <watch expression="function.arguments.get(i)" language="JAVA" />
+        <watch expression="curFunction.name" language="JAVA" />
+        <watch expression="curFunction.name" language="JAVA" />
+        <watch expression="curFunction.name" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

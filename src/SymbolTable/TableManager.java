@@ -61,4 +61,8 @@ public class TableManager {
         return curTable.findSymbol(token);
     }
 
+    public static Symbol getSymbol(String name){
+        return curTable.findSymbol(name);
+    }
+
 }

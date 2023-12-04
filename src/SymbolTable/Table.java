@@ -50,4 +50,16 @@ public class Table {
         }
         else return pre.findSymbol(token);
     }
+
+    public Symbol findSymbol(String name){
+        if(symbols.containsKey(name))
+        {
+            return symbols.get(name);
+        }
+        if(pre==null){
+//            ErrorRecord.addError(token.getLine(),token.getIndex(), ErrorType.c);
+            return null;
+        }
+        else return pre.findSymbol(name);
+    }
 }

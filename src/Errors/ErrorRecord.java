@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class ErrorRecord {
+    public static boolean isCorrect=true;
     //存放各种错误的优先队列
     private static PriorityQueue<Error> errors = new PriorityQueue<Error>(new Comparator<Error>() {
         @Override
@@ -20,6 +21,7 @@ public class ErrorRecord {
     public static void printError() throws IOException {
         while(!errors.isEmpty())
         {
+            isCorrect=false;
             Error e = errors.poll();
             IOUtils.write_err(e.toString());
         }

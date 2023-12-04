@@ -45,6 +45,7 @@ public class FuncSymbol extends Symbol{
             dimension_expected=dimensions.get(i);
 
             UnaryExp unaryExp_actual=a.exps.get(i).addExp.mulExp.unaryExp;
+            while(unaryExp_actual.unaryExp!=null) unaryExp_actual=unaryExp_actual.unaryExp;//当有负号之类的时候。。。
             //是函数的情况
             if(unaryExp_actual.ident!=null||unaryExp_actual.unaryOp!=null){
                 //检查函数返回类型
