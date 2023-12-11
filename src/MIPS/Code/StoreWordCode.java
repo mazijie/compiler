@@ -2,6 +2,7 @@ package MIPS.Code;
 
 import MIPS.Address;
 import MIPS.Register;
+import utils.Boom;
 import utils.IOUtils;
 
 import java.io.IOException;
@@ -20,6 +21,6 @@ public class StoreWordCode extends MIPSCode{
         if(address!=null)
             IOUtils.write("\tsw "+register.name+", "+address.toString()+"\n");
         else
-            IOUtils.write("\tsw "+register.name+", "+"null"+"\n");
+            Boom.boom();
     }
 }

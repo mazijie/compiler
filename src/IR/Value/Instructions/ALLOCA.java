@@ -1,5 +1,6 @@
 package IR.Value.Instructions;
 
+import IR.Array.ArrayType;
 import IR.Value.BasicBlock;
 import IR.Value.Value;
 import IR.Value.VarPointer;
@@ -13,6 +14,11 @@ public class ALLOCA extends Instruction{
     public ALLOCA(BasicBlock basicBlock, VarPointer pointer) {
         super(InstructionType.ALLOCA, basicBlock);
         this.pointer = pointer;
+        {
+            //优化部分
+            if(!(pointer.type.pointto instanceof ArrayType))
+                this.whomIDefine.add(pointer);
+        }
     }
 
 

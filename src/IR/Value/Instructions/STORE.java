@@ -15,6 +15,13 @@ public class STORE extends Instruction{
         super(InstructionType.STORE, basicBlock);
         this.v1 = v1;
         this.v2 = v2;
+        {
+            //优化部分
+            this.whomIUse.add(v1);
+            this.whomIUse.add(v2);
+//            if(v1!=v2)
+//                this.whomIDefine.add(v2);
+        }
     }
 
     @Override

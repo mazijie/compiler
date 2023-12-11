@@ -5,6 +5,8 @@ import utils.IOUtils;
 
 import java.io.IOException;
 
+import static MIPS.Code.BinaryRegRegCode.Op.SGT;
+
 public class BinaryRegRegCode extends MIPSCode{
 
     private final Register rd;
@@ -13,8 +15,8 @@ public class BinaryRegRegCode extends MIPSCode{
     private final Op op;
 
     public enum Op{
-        ADD,//加
-        SUB,//减
+        ADDU,//加
+        SUBU,//减
         MUL,//乘
         DIV, //除
         AND,//与
@@ -43,6 +45,6 @@ public class BinaryRegRegCode extends MIPSCode{
 
     @Override
     public void print() throws IOException {
-        IOUtils.write("\t"+op.toString()+" "+rd.name+", "+rs.name+", "+rt.name+"\n");
+            IOUtils.write("\t"+op.toString()+" "+rd.name+", "+rs.name+", "+rt.name+"\n");
     }
 }

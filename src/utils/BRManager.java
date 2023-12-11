@@ -10,14 +10,21 @@ public class BRManager {
     public static List<BRForTable> fortables = new ArrayList<BRForTable>();
     public static BRTable curTable = null;
     public static BRForTable curForTable = null;
+    public static int loopFloor=1;
 
     public static void addForTable(){
+        //优化的尝试
+        loopFloor++;
+
         BRForTable newTable = new BRForTable(curForTable);
         curForTable=newTable;
         fortables.add(newTable);
         addTable();
     }
     public static void removeForTable(){
+        //优化的尝试
+        loopFloor--;
+
         curTable=curTable.pre;
         curForTable=curForTable.pre;
     }

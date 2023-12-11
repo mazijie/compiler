@@ -1,6 +1,7 @@
 package MIPS;
 
 import IR.Value.BasicBlock;
+import config.Config;
 
 public class Label {
     public String name;

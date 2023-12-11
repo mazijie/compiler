@@ -13,6 +13,12 @@ public class ZEXTTO extends Instruction{
         super(InstructionType.ZEXTTO, basicBlock);
         this.zextfrom = zextfrom;
         this.zextto = zextto;
+        {
+            //优化部分
+            this.whomIUse.add(zextfrom);
+            if(zextfrom!=zextto)
+                this.whomIDefine.add(zextto);
+        }
     }
 
     @Override

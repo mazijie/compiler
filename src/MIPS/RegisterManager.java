@@ -1,6 +1,7 @@
 package MIPS;
 
 import IR.Value.Argument;
+import IR.Value.ConstInteger;
 import IR.Value.Value;
 import IR.Value.VarPointer;
 import MIPS.Code.LoadWordCode;
@@ -15,54 +16,64 @@ public class RegisterManager {
     static HashMap<Value,Register> regOfValue = new HashMap<Value,Register>();
     static HashMap<Register,Value> valueOfReg = new HashMap<Register,Value>();
 
-    public static void init(){
-        for(Register reg: Register.regs){
-            switch (reg.type){
-                case Temp -> tempRegs.add(reg);
-                case Global -> globalRegs.add(reg);
-            }
-        }
-    }
+//    public static void init(){
+//        for(Register reg: Register.regs){
+//            switch (reg.type){
+//                case Temp -> tempRegs.add(reg);
+//                case Global -> globalRegs.add(reg);
+//            }
+//        }
+//    }
 
-    public static void freeTempRegs(){
-        while(!tempUsed.isEmpty()){
-            Register reg = tempUsed.get(0);
-            freeReg(reg);
-        }
-    }
+//    public static void freeTempRegs(){
+//        while(!tempUsed.isEmpty()){
+//            Register reg = tempUsed.get(0);
+//            freeReg(reg);
+//        }
+//    }
 
-    public static void freeGlobalRegs(){
-        while(!globalUsed.isEmpty()){
-            Register reg = globalUsed.get(0);
-            freeReg(reg);
-        }
-    }
+//    public static void freeGlobalRegs(){
+//        while(!globalUsed.isEmpty()){
+//            Register reg = globalUsed.get(0);
+//            freeReg(reg);
+//        }
+//    }
 
-    public static void freeAllRegs(){
-        freeTempRegs();
-        freeGlobalRegs();
-    }
+//    public static void freeAllRegs(){
+//        freeTempRegs();
+//        freeGlobalRegs();
+//    }
 
-    public static void freeReg(Register reg){
-        Value v = valueOfReg.get(reg);
-        valueOfReg.remove(reg);
-        regOfValue.remove(v);
-        tempUsed.remove(reg);
-        globalUsed.remove(reg);
+//    public static void freeReg(Register reg){
+//        Value v = valueOfReg.get(reg);
+//        valueOfReg.remove(reg);
+//        regOfValue.remove(v);
+//        tempUsed.remove(reg);
+//        globalUsed.remove(reg);
+//
+//        switch (reg.type){
+//            case Temp -> tempRegs.add(reg);
+//            case Global -> globalRegs.add(reg);
+//        }
+//    }
 
-        switch (reg.type){
-            case Temp -> tempRegs.add(reg);
-            case Global -> globalRegs.add(reg);
-        }
-    }
+//    public static void freeReg(HashSet<Value> validValues){
+//        HashSet<Value> valuesTokill = new HashSet<Value>();
+//        for(Value v : regOfValue.keySet()){
+//            if(!validValues.contains(v)) valuesTokill.add(v);
+//        }
+//        for(Value value:valuesTokill){
+//            freeReg(regOfValue.get(value));
+//        }
+//    }
 
     public static Register getZero(){
         return Register.$zero;
     }
 
-    public static Register getSp(){
-        return Register.$sp;
-    }
+//    public static Register getSp(){
+//        return Register.$sp;
+//    }
 
     public static Register getGp(){
         return Register.$gp;
@@ -102,107 +113,253 @@ public class RegisterManager {
     public static Register get$a2(){ return Register.$a2;}
     public static Register get$a3(){ return Register.$a3;}
 
-    private static List<Register> tempRegs = new ArrayList<>();
-    private static List<Register> tempUsed = new ArrayList<>();
+//    private static List<Register> tempRegs = new ArrayList<>();
+//    private static List<Register> tempUsed = new ArrayList<>();
 
-    public static Register getTempReg(Value value) throws IOException {
-        if(value==null) Boom.boom();
-        //1.寄存器里有存这个值
-        for(Value item : regOfValue.keySet())
-        {
-            if(tempUsed.contains(regOfValue.get(item))&&item.name.equals(value.name)) return regOfValue.get(item);
+//    public static Register getTempReg(Value value) throws IOException {
+//        if(value==null) Boom.boom();
+//        //1.寄存器里有存这个值
+//        for(Value item : regOfValue.keySet())
+//        {
+//            if(tempUsed.contains(regOfValue.get(item))&&item.name.equals(value.name)) return regOfValue.get(item);
+//        }
+//        //2.内存有存这个值
+//        if(AddressManager.contains(value)) {
+//            Address addOfTarget = AddressManager.find(value);
+//            if(tempRegs.isEmpty()){
+//                Register regToFree = tempUsed.get(0);
+//                Value valueToStore = valueOfReg.get(regToFree);
+//                Address addToStore = AddressManager.store(valueToStore);
+//                StoreWordCode code_1 = new StoreWordCode(regToFree,addToStore);//把寄存器原来的值存到内存
+//                code_1.print();
+//                freeReg(regToFree);
+//            }
+//            Register regToUse = tempRegs.get(0);
+//            LoadWordCode code_2 = new LoadWordCode(regToUse,addOfTarget);//将目标值移到寄存器上
+//            code_2.print();
+//            return regToUse;
+//        }
+//        //3.这个值是新的，需要开一个寄存器
+//        //没有寄存器就腾一个
+//        if(tempRegs.isEmpty()){
+//            Register r = tempUsed.get(0);
+//            Value v = valueOfReg.get(r);
+//            freeReg(r);
+//            Address add = AddressManager.store(v);
+//            StoreWordCode code = new StoreWordCode(r,add);
+//            code.print();
+//        }
+//        Register r = tempRegs.get(0);
+//        tempRegs.remove(r);
+//        tempUsed.add(r);
+//        regOfValue.put(value,r);
+//        valueOfReg.put(r,value);
+//        return r;
+//    }
+
+
+//    private static List<Register> globalRegs = new ArrayList<>();
+//    private static List<Register> globalUsed = new ArrayList<>();
+
+//    public static Register getGlobalReg(VarPointer varPointer) throws IOException {
+//        //1.寄存器里有存这个值
+//        if(regOfValue.containsKey(varPointer)) return regOfValue.get(varPointer);
+//        //2.内存有存这个值
+//        if(AddressManager.contains(varPointer)) {
+//            if(globalRegs.isEmpty()){
+//                Register regToFree = globalUsed.get(0);
+//                Value valueToStore = valueOfReg.get(regToFree);
+//                Address addToStore = AddressManager.store(valueToStore);
+//                StoreWordCode code_1 = new StoreWordCode(regToFree,addToStore);//把寄存器原来的值存到内存
+//                code_1.print();
+//                freeReg(regToFree);
+//            }
+//            Address addOfTarget = AddressManager.find(varPointer);
+//            Register regToUse = globalRegs.get(0);
+//            globalRegs.remove(regToUse);
+//            globalUsed.add(regToUse);
+//            regOfValue.put(varPointer,regToUse);
+//            valueOfReg.put(regToUse,varPointer);
+//            LoadWordCode code_2 = new LoadWordCode(regToUse,addOfTarget);//将目标值移到寄存器上
+//            code_2.print();
+//            return regToUse;
+//        }
+//        //3.这个值是新的，需要开一个寄存器
+//        //没有寄存器就腾一个
+//        globalValues.add(varPointer);
+//        if(globalRegs.isEmpty()){
+//            Register r = globalUsed.get(0);
+//            Value v = valueOfReg.get(r);
+//            freeReg(r);
+//            Address add = AddressManager.store(v);
+//            StoreWordCode code = new StoreWordCode(r,add);
+//            code.print();
+//        }
+//        Register r = globalRegs.get(0);
+//        globalRegs.remove(r);
+//        globalUsed.add(r);
+//        regOfValue.put(varPointer,r);
+//        valueOfReg.put(r,varPointer);
+//        return r;
+//    }
+
+
+//    public static void stageRegs() throws IOException {
+//        for(int i=0;i<tempUsed.size();i++){
+//            AddressManager.addSP();
+//            Register reg = tempUsed.get(i);
+//            StoreWordCode storeWordCode = new StoreWordCode(reg, AddressManager.getSPAddress());
+//            storeWordCode.print();
+//        }
+//        for(int j=0;j<globalUsed.size();j++){
+//            AddressManager.addSP();
+//            Register reg = globalUsed.get(j);
+//            StoreWordCode storeWordCode = new StoreWordCode(reg, AddressManager.getSPAddress());
+//            storeWordCode.print();
+//        }
+//        AddressManager.addSP();
+//        StoreWordCode storeWordCode = new StoreWordCode(RegisterManager.getRa(), AddressManager.getSPAddress());
+//        storeWordCode.print();
+//    }
+//
+//    public static void restoreRegs() throws IOException {
+//        LoadWordCode code = new LoadWordCode(RegisterManager.getRa(),AddressManager.getSPAddress());
+//        code.print();
+//        AddressManager.subSP();
+//        for(int j=globalUsed.size()-1;j>=0;j--){
+//            Register reg = globalUsed.get(j);
+//            LoadWordCode loadWordCode = new LoadWordCode(reg, AddressManager.getSPAddress());
+//            loadWordCode.print();
+//            AddressManager.subSP();
+//        }
+//        for(int i=tempUsed.size()-1;i>=0;i--){
+//            Register reg = tempUsed.get(i);
+//            LoadWordCode loadWordCode = new LoadWordCode(reg, AddressManager.getSPAddress());
+//            loadWordCode.print();
+//            AddressManager.subSP();
+//        }
+//    }
+
+//    public static boolean containsTempValue(Value value){
+//        for(Register reg : tempUsed){
+//            if(valueOfReg.get(reg)==null){
+//                int i=0;
+//                return true;
+//            }
+//            if(valueOfReg.get(reg).name.equals(value.name)) return true;
+//        }
+//        return false;
+//    }
+
+//    public static boolean containsGlobalValue(Value value){
+//        for(Register reg : globalUsed){
+//            if(valueOfReg.get(reg).name.equals(value.name)) return true;
+//        }
+//        return false;
+//    }
+
+//    static List<Value> globalValues = new ArrayList<Value>();
+
+//    public static boolean isGlobalValue(Value value){
+//        for(Value v: globalValues){
+//            if(v.name.equals(value.name)) return true;
+//        }return false;
+//    }
+//    public static void clearGlobalValues(){
+//        globalValues.clear();
+//    }
+
+//    public static Register getNewTempReg(Value value) throws IOException {
+//        if(value==null) Boom.boom();
+//        //3.这个值是新的，需要开一个寄存器
+//        //没有寄存器就腾一个
+//        //全部形参即取即存，调用getNewTempReg获得寄存器，用完就释放
+//        if(tempRegs.isEmpty()){
+//            Register r = tempUsed.get(0);
+//            freeReg(r);
+//        }
+//        Register r = tempRegs.get(0);
+//        tempRegs.remove(r);
+//        tempUsed.add(r);
+//        regOfValue.put(value,r);
+//        valueOfReg.put(r,value);
+//        return r;
+//    }
+
+
+    //优化部分
+    static HashMap<Register, Value> globalUsedOP = new HashMap<>();
+    static HashMap<Register,Value> tempUsedOP = new HashMap<>();
+
+    public static Register getRegOP(Value v,int index, boolean isUsed) throws IOException {
+        if(v instanceof ConstInteger){
+            return getTempApplicationRegOP(index);
         }
-        //2.内存有存这个值
-        if(AddressManager.contains(value)) {
-            Address addOfTarget = AddressManager.find(value);
-            if(tempRegs.isEmpty()){
-                Register regToFree = tempUsed.get(0);
-                Value valueToStore = valueOfReg.get(regToFree);
-                Address addToStore = AddressManager.store(valueToStore);
-                StoreWordCode code_1 = new StoreWordCode(regToFree,addToStore);//把寄存器原来的值存到内存
-                code_1.print();
-                freeReg(regToFree);
+        if(v.registerAssigned!=null) {
+            globalUsedOP.put(v.registerAssigned,v);
+            return v.registerAssigned;
+        }
+        else if(AddressManager.contains(v)){
+            //如果使用值,就加载一下；如果不用就不加载了
+            if(isUsed){
+                LoadWordCode loadWordCode = new LoadWordCode(Register.getTempRegister(index),AddressManager.find(v));
+                loadWordCode.print();
             }
-            Register regToUse = tempRegs.get(0);
-            LoadWordCode code_2 = new LoadWordCode(regToUse,addOfTarget);//将目标值移到寄存器上
-            code_2.print();
-            return regToUse;
+            tempUsedOP.put(Register.getTempRegister(index),v);
+            return Register.getTempRegister(index);
         }
-        //3.这个值是新的，需要开一个寄存器
-        //没有寄存器就腾一个
-        if(tempRegs.isEmpty()){
-            Register r = tempUsed.get(0);
-            Value v = valueOfReg.get(r);
-            freeReg(r);
-            Address add = AddressManager.store(v);
-            StoreWordCode code = new StoreWordCode(r,add);
-            code.print();
+        else{
+            //没有对应的变量值，直接返回
+            AddressManager.store(v);
+            tempUsedOP.put(Register.getTempRegister(index),v);
+            return Register.getTempRegister(index);
         }
-        Register r = tempRegs.get(0);
-        tempRegs.remove(r);
-        tempUsed.add(r);
-        regOfValue.put(value,r);
-        valueOfReg.put(r,value);
-        return r;
     }
 
-
-    private static List<Register> globalRegs = new ArrayList<>();
-    private static List<Register> globalUsed = new ArrayList<>();
-
-    public static Register getGlobalReg(VarPointer varPointer) throws IOException {
-        //1.寄存器里有存这个值
-        if(regOfValue.containsKey(varPointer)) return regOfValue.get(varPointer);
-        //2.内存有存这个值
-        if(AddressManager.contains(varPointer)) {
-            if(globalRegs.isEmpty()){
-                Register regToFree = globalUsed.get(0);
-                Value valueToStore = valueOfReg.get(regToFree);
-                Address addToStore = AddressManager.store(valueToStore);
-                StoreWordCode code_1 = new StoreWordCode(regToFree,addToStore);//把寄存器原来的值存到内存
-                code_1.print();
-                freeReg(regToFree);
-            }
-            Address addOfTarget = AddressManager.find(varPointer);
-            Register regToUse = globalRegs.get(0);
-            globalRegs.remove(regToUse);
-            globalUsed.add(regToUse);
-            regOfValue.put(varPointer,regToUse);
-            valueOfReg.put(regToUse,varPointer);
-            LoadWordCode code_2 = new LoadWordCode(regToUse,addOfTarget);//将目标值移到寄存器上
-            code_2.print();
-            return regToUse;
-        }
-        //3.这个值是新的，需要开一个寄存器
-        //没有寄存器就腾一个
-        globalValues.add(varPointer);
-        if(globalRegs.isEmpty()){
-            Register r = globalUsed.get(0);
-            Value v = valueOfReg.get(r);
-            freeReg(r);
-            Address add = AddressManager.store(v);
-            StoreWordCode code = new StoreWordCode(r,add);
-            code.print();
-        }
-        Register r = globalRegs.get(0);
-        globalRegs.remove(r);
-        globalUsed.add(r);
-        regOfValue.put(varPointer,r);
-        valueOfReg.put(r,varPointer);
-        return r;
+    public static Register getTempApplicationRegOP(int index) throws IOException {
+        //默认是一个不存在的，只需要临时存的值，应当提供一个空的临时寄存器
+        tempUsedOP.put(Register.getTempRegister(index),null);
+        return Register.getTempRegister(index);
     }
 
+    public static void freeTempRegOP(Register reg,boolean isChanged) throws IOException {
+        if(reg.type!=RegisterType.Temp) return;
+        Value v = tempUsedOP.get(reg);
+        if(isChanged&&v!=null){
+            //值改变的时候，存值
+            Address address = AddressManager.find(v);
+            StoreWordCode storeWordCode = new StoreWordCode(reg,address);
+            storeWordCode.print();
+        }
+        tempUsedOP.remove(reg);
+    }
+    public static void freeGlobalRegsOP(Set<Value> whoOut) {
+        Set<Register> toFree = new HashSet<>();
+        for(Register reg : globalUsedOP.keySet()){
+            if(!whoOut.contains(globalUsedOP.get(reg))) toFree.add(reg);
+        }
+        for(Register reg : toFree){
+            globalUsedOP.remove(reg);
+        }
+    }
 
-    public static void stageRegs() throws IOException {
-        for(int i=0;i<tempUsed.size();i++){
+    static List<Register> temps = new ArrayList<>();
+    static List<Register> globals = new ArrayList<>();
+
+    public static void stageRegsOP() throws IOException {
+        temps.clear();
+        globals.clear();
+        temps.addAll(tempUsedOP.keySet());
+        globals.addAll(globalUsedOP.keySet());
+        for(int i=0;i<temps.size();i++){
             AddressManager.addSP();
-            Register reg = tempUsed.get(i);
+            Register reg = temps.get(i);
             StoreWordCode storeWordCode = new StoreWordCode(reg, AddressManager.getSPAddress());
             storeWordCode.print();
         }
-        for(int j=0;j<globalUsed.size();j++){
+        for(int j=0;j<globals.size();j++){
             AddressManager.addSP();
-            Register reg = globalUsed.get(j);
+            Register reg = globals.get(j);
             StoreWordCode storeWordCode = new StoreWordCode(reg, AddressManager.getSPAddress());
             storeWordCode.print();
         }
@@ -211,67 +368,23 @@ public class RegisterManager {
         storeWordCode.print();
     }
 
-    public static void restoreRegs() throws IOException {
+    public static void restoreRegsOP() throws IOException {
         LoadWordCode code = new LoadWordCode(RegisterManager.getRa(),AddressManager.getSPAddress());
         code.print();
         AddressManager.subSP();
-        for(int j=globalUsed.size()-1;j>=0;j--){
-            Register reg = globalUsed.get(j);
+        for(int j=globals.size()-1;j>=0;j--){
+            Register reg = globals.get(j);
             LoadWordCode loadWordCode = new LoadWordCode(reg, AddressManager.getSPAddress());
             loadWordCode.print();
             AddressManager.subSP();
         }
-        for(int i=tempUsed.size()-1;i>=0;i--){
-            Register reg = tempUsed.get(i);
+        for(int i=temps.size()-1;i>=0;i--){
+            Register reg = temps.get(i);
             LoadWordCode loadWordCode = new LoadWordCode(reg, AddressManager.getSPAddress());
             loadWordCode.print();
             AddressManager.subSP();
         }
-    }
-
-    public static boolean containsTempValue(Value value){
-        for(Register reg : tempUsed){
-            if(valueOfReg.get(reg)==null){
-                int i=0;
-                return true;
-            }
-            if(valueOfReg.get(reg).name.equals(value.name)) return true;
-        }
-        return false;
-    }
-
-    public static boolean containsGlobalValue(Value value){
-        for(Register reg : globalUsed){
-            if(valueOfReg.get(reg).name.equals(value.name)) return true;
-        }
-        return false;
-    }
-
-    static List<Value> globalValues = new ArrayList<Value>();
-
-    public static boolean isGlobalValue(Value value){
-        for(Value v: globalValues){
-            if(v.name.equals(value.name)) return true;
-        }return false;
-    }
-    public static void clearGlobalValues(){
-        globalValues.clear();
-    }
-
-    public static Register getNewTempReg(Value value) throws IOException {
-        if(value==null) Boom.boom();
-        //3.这个值是新的，需要开一个寄存器
-        //没有寄存器就腾一个
-        //120501号行政令：批示全部形参即取即存，调用getNewTempReg获得寄存器，用完就释放
-        if(tempRegs.isEmpty()){
-            Register r = tempUsed.get(0);
-            freeReg(r);
-        }
-        Register r = tempRegs.get(0);
-        tempRegs.remove(r);
-        tempUsed.add(r);
-        regOfValue.put(value,r);
-        valueOfReg.put(r,value);
-        return r;
+        globals.clear();
+        temps.clear();
     }
 }

@@ -83,6 +83,9 @@ public class Calculator {
     private static int calc(PrimaryExp primaryExp) {
         if(primaryExp.number!=null) return calc(primaryExp.number);
         else if(primaryExp.lVal!=null){
+            if(NewSymbolManager.isConstVarPointer(primaryExp.lVal.ident.getContent())){
+                return NewSymbolManager.getConstVarPointer(primaryExp.lVal.ident.getContent());
+            }
             return ((GlobalVar)NewSymbolManager.searchByName(primaryExp.lVal.ident.getContent())).val;
         }
         else return calc(primaryExp.exp);

@@ -2,10 +2,7 @@ package IR.NewSymbol;
 
 import IR.Array.Array;
 import IR.Type.ValueType;
-import IR.Value.Function;
-import IR.Value.GlobalVar;
-import IR.Value.Value;
-import IR.Value.VarPointer;
+import IR.Value.*;
 
 import java.time.temporal.ValueRange;
 import java.util.ArrayList;
@@ -43,6 +40,23 @@ public class NewSymbolManager {
 
     public static ValueType searchFuncForType(String name){
         return curTable.searchFuncForType(name);
+    }
+
+    //优化部分
+    public static Function searchFunc(String name){
+        return curTable.searchFunc(name);
+    }
+
+    public static void addConstVarPointer(String content, int val) {
+        curTable.addConstVarPointer(content,val);
+    }
+
+    public static Boolean isConstVarPointer(String content){
+        return curTable.isConstVarPointer(content);
+    }
+
+    public static int getConstVarPointer(String content){
+        return curTable.findConstVarPointer(content);
     }
 
 //    public static Array searchArray(String name){return curTable.searchArray(name);}

@@ -1,7 +1,7 @@
 package IR.Value;
 
-import IR.IRModule;
 import IR.Type.ValueType;
+import config.Config;
 import utils.IOUtils;
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ public class Function extends Value{
     //以函数为单位进行赐名活动
     public String giveName(){
         count++;
-        return "%v_"+count;
+        return "%"+ name +count + Config.fuzzyName;
     }
 
     //函数下辖若干基本块
@@ -68,5 +68,15 @@ public class Function extends Value{
 //            IOUtils.write("\tret void\n");
 //        }
         IOUtils.write("}\n");
+    }
+
+    //优化部分
+    public List<Function> whomICall = new ArrayList<>();
+    public List<Function> whoCallMe = new ArrayList<>();
+    public void addWhomICall(Function function){
+        whomICall.add(function);
+    }
+    public void addWhoCallMe(Function function){
+        whoCallMe.add(function);
     }
 }

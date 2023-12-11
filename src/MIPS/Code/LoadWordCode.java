@@ -2,6 +2,7 @@ package MIPS.Code;
 
 import MIPS.Address;
 import MIPS.Register;
+import utils.Boom;
 import utils.IOUtils;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ public class LoadWordCode extends MIPSCode{
         if(address!=null)
             IOUtils.write("\tlw "+rt.name+", "+address.toString()+"\n");
         else
-            IOUtils.write("\tlw "+rt.name+", "+"null"+"\n");
+//            IOUtils.write("\tlw "+rt.name+", "+"null"+"\n");
+            Boom.boom();
     }
 }

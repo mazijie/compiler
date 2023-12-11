@@ -7,7 +7,6 @@ import IR.Type.PointerType;
 import IR.Type.ValueType;
 import IR.Value.*;
 import IR.Value.Instructions.BR;
-import IR.Value.Instructions.CALL;
 import Lexer.Token;
 import Lexer.TokenType;
 import Parser.NonTerminators.Number;
@@ -79,6 +78,7 @@ public class VisitorOP {
         for(int i=0;i<arguments.size();i++){
             Argument argument=arguments.get(i);
             if(!(argument.type instanceof PointerType)){//不是数组指针
+                argument.ValueInFunc=argument;
                 VarPointer varPointer=IRBuildFactory.buildVarPointer(curFunction.giveName(), PointerType.i32P);
                 NewSymbolManager.addVarPointer(funcDef.funcFParams.funcFParams.get(i).ident.getContent(),varPointer);
                 IRBuildFactory.buildALLOCA(curBasicBlock,varPointer);
@@ -86,6 +86,7 @@ public class VisitorOP {
             }else{
                 //是数组指针
                 VarPointer augPointer=IRBuildFactory.buildVarPointer(argument.name,(PointerType)argument.type);
+                argument.ValueInFunc=augPointer;
                 VarPointer varPointer=IRBuildFactory.buildVarPointer(curFunction.giveName(),new PointerType(argument.type));
                 NewSymbolManager.addVarPointer(funcDef.funcFParams.funcFParams.get(i).ident.getContent(),varPointer);
                 IRBuildFactory.buildALLOCA(curBasicBlock,varPointer);
@@ -154,7 +155,8 @@ public class VisitorOP {
     }
 
     private static void visitBlockItem(BlockItem blockitem) {
-        if(blockitem.decl!=null) visitDecl(blockitem.decl);
+        if(blockitem.decl!=null)
+            visitDecl(blockitem.decl);
         else {
             visitStmt(blockitem.stmt);
         }
@@ -234,6 +236,14 @@ public class VisitorOP {
                     UnaryExp unaryExp=stmt.exp.addExp.mulExp.unaryExp;
                     if(unaryExp.ident!=null){
                         ValueType type=NewSymbolManager.searchFuncForType(unaryExp.ident.getContent());
+                        {
+                            //优化部分
+                            Function f = NewSymbolManager.searchFunc(unaryExp.ident.getContent());
+                            if(f!=null){
+                                f.addWhoCallMe(curFunction);
+                                curFunction.addWhomICall(f);
+                            }
+                        }
                         List<Value> args=new ArrayList<>();
                         if(unaryExp.funcRParams!=null)
                             for(Exp exp:unaryExp.funcRParams.exps){
@@ -551,7 +561,8 @@ public class VisitorOP {
     private static void visitDecl(Decl decl) {
         if(decl.varDecl!=null){
             visitVarDecl(decl.varDecl);
-        }else{
+        }
+        else{
             visitConstDecl(decl.constDecl);
         }
     }
@@ -643,7 +654,10 @@ public class VisitorOP {
 
                     Value v1=visitAddExp(constDef.constInitVal.constExp.addExp);
                     IRBuildFactory.buildSTORE(curBasicBlock,v1,varPointer);
-                    NewSymbolManager.addVarPointer(constDef.indent.getContent(),varPointer);
+                    if(v1 instanceof ConstInteger)
+                        NewSymbolManager.addConstVarPointer(constDef.indent.getContent(),((ConstInteger) v1).val);
+                    else
+                        NewSymbolManager.addVarPointer(constDef.indent.getContent(),varPointer);
                 }
                 else{
                     //是数组
@@ -699,13 +713,12 @@ public class VisitorOP {
     }
 
     private static void visitVarDecl(VarDecl varDecl) {
-        for(VarDef varDef:varDecl.varDefs){
-            visitVarDef(varDef);
-        }
+            for(VarDef varDef:varDecl.varDefs){
+                visitVarDef(varDef);
+            }
     }
 
     private static void visitVarDef(VarDef varDef) {
-
         PointerType type;
         if(varDef.left==null||varDef.left.size()==0){
             type=PointerType.i32P;
@@ -934,7 +947,14 @@ public class VisitorOP {
             //TODO:调用函数,形成Call指令
 
             ValueType returnType=NewSymbolManager.searchFuncForType(unaryExp.ident.getContent());
-
+            {
+                //优化部分
+                Function f = NewSymbolManager.searchFunc(unaryExp.ident.getContent());
+                if(f!=null){
+                    f.addWhoCallMe(curFunction);
+                    curFunction.addWhomICall(f);
+                }
+            }
             List<Value> args = new ArrayList<Value>();
             if(unaryExp.funcRParams!=null)
                 for(Exp exp:unaryExp.funcRParams.exps){
@@ -953,6 +973,9 @@ public class VisitorOP {
             {
                 //var为指向返回值的变量//FIXME
                 //FIXME
+                if(NewSymbolManager.isConstVarPointer(primaryExp.lVal.ident.getContent())){
+                    return IRBuildFactory.buildConstInt(NewSymbolManager.getConstVarPointer(primaryExp.lVal.ident.getContent()));
+                }
                 VarPointer resPointer = visitLVal(primaryExp.lVal);
                 assert resPointer != null;
                 Value res;

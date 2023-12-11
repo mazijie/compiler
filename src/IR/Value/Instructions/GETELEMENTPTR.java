@@ -24,6 +24,13 @@ public class GETELEMENTPTR extends Instruction{
         this.array = array;
         this.offset = offset;
         this.type = type;
+        {
+            //优化部分
+            this.whomIUse.add(array);
+            this.whomIUse.add(offset);
+            if(res!=array&&res!=offset)
+                this.whomIDefine.add(res);
+        }
     }
 
     public GETELEMENTPTR(BasicBlock basicBlock, VarPointer res, GlobalVar array, Value offset ,int type) {
@@ -32,6 +39,13 @@ public class GETELEMENTPTR extends Instruction{
         this.globalArray = array;
         this.offset = offset;
         this.type=type;
+        {
+            //优化部分
+            this.whomIUse.add(array);
+            this.whomIUse.add(offset);
+            if(res!=array&&res!=offset)
+                this.whomIDefine.add(res);
+        }
     }
 
     @Override

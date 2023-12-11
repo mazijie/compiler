@@ -20,7 +20,7 @@ public class BrCondCode extends MIPSCode{
     }
     @Override
     public void print() throws IOException {
-        IOUtils.write("\tbeq "+res.name+", "+zero.name+", "+false_label.name+"\n");
-        IOUtils.write("\tbne "+res.name+", "+zero.name+", "+true_label.name+"\n");
+        if(false_label!=null) IOUtils.write("\tbeq "+res.name+", "+zero.name+", "+false_label.name+"\n");
+        if(true_label!=null) IOUtils.write("\tbne "+res.name+", "+zero.name+", "+true_label.name+"\n");
     }
 }

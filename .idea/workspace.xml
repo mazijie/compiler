@@ -4,91 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="668be71d-b386-42c5-95c3-a44b4ad36063" name="变更" comment="错误处理">
-      <change afterPath="$PROJECT_DIR$/compare.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Errors/ErrorDetect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Array/Array.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Array/ArrayType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/ICMPType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/IRBuildFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/IRModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/NewSymbol/NewSymbolManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/NewSymbol/NewSymbolTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Type/PointerType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Type/Type.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Type/ValueType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Use.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Argument.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/BasicBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Const.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/ConstFloat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/ConstInteger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Function.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/GlobalVar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ADD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ALLOCA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/AND.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/BR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/CALL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/GETELEMENTPTR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ICMP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/Instruction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/InstructionType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/LOAD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/MUL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/OR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/PHI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/RET.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/SDIV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/SREM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/STORE.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/SUB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ZEXTTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/Value.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Value/VarPointer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/Visitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IR/VisitorOP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/AddressManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/BinaryRegImmCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/BinaryRegRegCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/BrCondCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/DIVCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/JALCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/JRCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/JumpCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/LoadAddressCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/LoadImmCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/LoadWordCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/MFHICode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/MIPSCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/MoveCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/NopCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/StoreWordCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Code/SyscallCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Label.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/MIPSGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/MIPS约定.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/Register.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/RegisterManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MIPS/RegisterType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config/Target.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/BRForTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/BRManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/BRTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Boom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Calculator.java" afterDir="false" />
+    <list default="true" id="668be71d-b386-42c5-95c3-a44b4ad36063" name="变更" comment="MIPS代码生成（无优化）">
+      <change afterPath="$PROJECT_DIR$/src/IR/IROptimizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/GraphPaint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MIPS/MIPSGeneratorOP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Compiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Errors/ErrorRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Errors/ErrorRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SymbolTable/FuncSymbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable/FuncSymbol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SymbolTable/Symbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable/Symbol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SymbolTable/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SymbolTable/TableManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SymbolTable/TableManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/IRModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/IRModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/NewSymbol/NewSymbolManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/NewSymbol/NewSymbolManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/NewSymbol/NewSymbolTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/NewSymbol/NewSymbolTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Argument.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Argument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Function.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/GlobalVar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/GlobalVar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/ADD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ADD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/ALLOCA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ALLOCA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/BR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/BR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/CALL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/CALL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/GETELEMENTPTR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/GETELEMENTPTR.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/ICMP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ICMP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/Instruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/Instruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/LOAD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/LOAD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/MUL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/MUL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/RET.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/RET.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/SDIV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/SDIV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/SREM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/SREM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/STORE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/STORE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/SUB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/SUB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Instructions/ZEXTTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Instructions/ZEXTTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/Value/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/Value/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IR/VisitorOP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IR/VisitorOP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MIPS/AddressManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MIPS/AddressManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MIPS/Code/BinaryRegImmCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MIPS/Code/BinaryRegImmCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MIPS/Code/BinaryRegRegCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MIPS/Code/BinaryRegRegCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MIPS/Code/BrCondCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MIPS/Code/BrCondCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MIPS/Code/LoadWordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MIPS/Code/LoadWordCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MIPS/Code/StoreWordCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MIPS/Code/StoreWordCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MIPS/Label.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MIPS/Label.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MIPS/MIPSGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MIPS/MIPSGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MIPS/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MIPS/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MIPS/RegisterManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MIPS/RegisterManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/testfile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/BRManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/BRManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Calculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +104,7 @@
       <recent name="IR.Value" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="MIPS" />
       <recent name="IR" />
     </key>
   </component>
@@ -258,7 +216,17 @@
       <workItem from="1701174727488" duration="48986000" />
       <workItem from="1701302995591" duration="5442000" />
       <workItem from="1701530990254" duration="150000" />
-      <workItem from="1701699792398" duration="12408000" />
+      <workItem from="1701699792398" duration="12849000" />
+      <workItem from="1701752376550" duration="1214000" />
+      <workItem from="1701772532256" duration="10000" />
+      <workItem from="1701849522293" duration="10891000" />
+      <workItem from="1701880273629" duration="4276000" />
+      <workItem from="1701932419714" duration="3984000" />
+      <workItem from="1701950350241" duration="2679000" />
+      <workItem from="1701977163374" duration="11009000" />
+      <workItem from="1702055537218" duration="19631000" />
+      <workItem from="1702105670275" duration="40547000" />
+      <workItem from="1702260262999" duration="4799000" />
     </task>
     <task id="LOCAL-00001" summary="错误处理">
       <created>1697132481003</created>
@@ -267,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697132481003</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="MIPS代码生成（无优化）">
+      <created>1701715265831</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701715265831</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +261,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="错误处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="错误处理" />
+    <MESSAGE value="MIPS代码生成（无优化）" />
+    <option name="LAST_COMMIT_MESSAGE" value="MIPS代码生成（无优化）" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

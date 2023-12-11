@@ -16,18 +16,18 @@ public class GlobalVar extends VarPointer{
     public Array array;
     public String string;
     public GlobalVar(String name, boolean isConst, PointerType type){
-        super("@"+Config.fuzzyName+name,type);
+        super("@"+Config.fuzzyName+name+Config.fuzzyName,type);
         this.isConst = isConst;
     }
     public GlobalVar(String name,boolean isConst,PointerType type,int val){
-        super("@"+Config.fuzzyName+name,type);
+        super("@"+Config.fuzzyName+name+Config.fuzzyName,type);
         this.isConst = isConst;
         this.val = val;
     }
 
     //数组指针
     public GlobalVar(String name, boolean isConst, PointerType type, Array array){
-        super("@"+Config.fuzzyName+name,type);
+        super("@"+Config.fuzzyName+name+Config.fuzzyName,type);
         this.isConst = isConst;
         this.array = array;
     }

@@ -21,6 +21,10 @@ public class CALL extends Instruction{
         this.name = name;
         this.params = params;
         this.type = type;
+        {
+            //优化部分
+            this.whomIUse.addAll(params);
+        }
     }
 
     public CALL(BasicBlock basicBlock, String name, ValueType type, List<Value> params, Value loadto) {
@@ -29,6 +33,12 @@ public class CALL extends Instruction{
         this.params = params;
         this.type = type;
         this.loadto=loadto;
+        {
+            //优化部分
+            this.whomIUse.addAll(params);
+            if(!params.contains(loadto))
+                this.whomIDefine.add(loadto);
+        }
     }
 
     @Override

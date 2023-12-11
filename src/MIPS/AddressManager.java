@@ -4,7 +4,6 @@ import IR.Value.Value;
 import IR.Value.VarPointer;
 import MIPS.Code.BinaryRegImmCode;
 import MIPS.Code.LoadWordCode;
-import MIPS.Code.MoveCode;
 import MIPS.Code.StoreWordCode;
 
 import java.io.IOException;
@@ -43,7 +42,7 @@ public class AddressManager {
         addSP();
         StoreWordCode storeFP = new StoreWordCode(RegisterManager.getFp(),getSPAddress());
         storeFP.print();
-        BinaryRegImmCode moveSP2FP = new BinaryRegImmCode(FP,FP,offsetFromFP, BinaryRegImmCode.Op.ADDI);
+        BinaryRegImmCode moveSP2FP = new BinaryRegImmCode(FP,FP,offsetFromFP, BinaryRegImmCode.Op.ADDIU);
 //        MoveCode moveSP2FP = new MoveCode(RegisterManager.getSp(),RegisterManager.getFp());
         moveSP2FP.print();
 //        tempOffsetFromFP=offsetFromFP;

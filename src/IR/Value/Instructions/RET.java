@@ -11,6 +11,10 @@ public class RET extends Instruction{
     public RET(BasicBlock curBasicBlock,Value value){
         super(InstructionType.RET,curBasicBlock);
         this.value = value;
+        {
+            //优化部分
+            this.whomIUse.add(value);
+        }
     }
     public RET(BasicBlock curBasicBlock){
         super(InstructionType.RET,curBasicBlock);

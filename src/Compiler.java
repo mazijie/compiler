@@ -2,22 +2,26 @@ import Errors.ErrorDetect;
 import Errors.ErrorRecord;
 import Exceptions.CompileException;
 import IR.IRModule;
+import IR.IROptimizer;
 import IR.Visitor;
 import IR.VisitorOP;
-import MIPS.MIPSGenerator;
+import MIPS.GraphPaint;
+//import MIPS.MIPSGenerator;
+import MIPS.MIPSGeneratorOP;
 import MIPS.RegisterManager;
 import Parser.Parser;
 import SymbolTable.TableManager;
 import config.Config;
 import Lexer.Lexer;
 import config.Target;
+import utils.Boom;
 import utils.IOUtils;
 
 import java.io.IOException;
 
 public class Compiler {
-    public static void main(String[] args) throws IOException {
-        try {
+    public static void main(String[] args) throws Exception {
+//        try {
             Config.init();
 
             //词法分析
@@ -26,7 +30,9 @@ public class Compiler {
                 Lexer.printLexAns();
                 return;
             }
-
+//        } catch (Exception e){
+//            System.out.println(e.getMessage());
+//        }
             //语法分析
             Parser.buildTree(Lexer.getTokens());
             if(Config.target== Target.Parser){
@@ -51,22 +57,20 @@ public class Compiler {
                 }
             } else{
                 VisitorOP.visitCompUnit(Parser.compUnit);
+                IROptimizer.optimize(Visitor.getModule());
                 if(Config.target==Target.LLVM){
                     VisitorOP.printResult();
                     return;
                 }
             }
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+
             //目标代码生成
-            RegisterManager.init();
-            if(!Config.mips_optimize){
-                MIPSGenerator.genMips(Visitor.getModule());
-            }else{
-                System.out.println("很抱歉，尚未完成目标代码优化部分");
-            }
-
-
+//            if(!Config.mips_optimize){
+//                RegisterManager.init();
+//                MIPSGenerator.genMips(Visitor.getModule());
+//            }else{
+                if(Config.mips_optimize) GraphPaint.buildGraph(Visitor.getModule());
+                MIPSGeneratorOP.genMips(Visitor.getModule());
+//            }
     }
 }

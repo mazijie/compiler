@@ -28,4 +28,7 @@ public class IRModule {
         functions.add(func);
     }
     public void addGlobalVar(GlobalVar var) { globalVars.add(var);}
+    public Function getMainFunction(){
+        return functions.get(functions.size()-1);
+    }
 }

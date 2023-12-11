@@ -19,6 +19,13 @@ public class LOAD extends Instruction{
         super(InstructionType.LOAD, basicBlock);
         this.loadto = loadto;
         this.loadfrom = loadfrom;
+        {
+            //优化部分
+            this.whomIUse.add(loadfrom);
+//            this.whomIUse.add(loadto);
+            if(loadto!=loadfrom)
+                this.whomIDefine.add(loadto);
+        }
     }
 
     @Override

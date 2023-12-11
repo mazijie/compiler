@@ -80,6 +80,38 @@ public class NewSymbolTable {
         return pre.searchArray(name);
     }
 
+    public HashMap<String,Integer> consts =new HashMap<>();
+    public void addConstVarPointer(String content, int val) {
+        consts.put(content,val);
+    }
+
+    public boolean isConstVarPointer(String content){
+        if(consts.containsKey(content)) return true;
+        if(pre==null||values.containsKey(content)) return false;
+        return pre.isConstVarPointer(content);
+    }
+    public int findConstVarPointer(String content){
+        if(consts.containsKey(content)) return consts.get(content);
+        if(pre==null) return 0;
+        return pre.findConstVarPointer(content);
+    }
+
+    //优化部分
+    public Function searchFunc(String name) {
+        if(funcs.containsKey(name)){
+            return funcs.get(name);
+        }if(pre==null) return null;
+        return pre.searchFunc(name);
+    }
+
+
+//    public Function searchFuncByName(String name) {
+//        if(funcs.containsKey(name)){
+//            return funcs.get(name);
+//        }if(pre==null) return null;
+//        return pre.searchFuncByName(name);
+//    }
+
 //    public GlobalArray searchGlobalArray(String name) {
 //        if(globalArrays.containsKey(name)){
 //            return globalArrays.get(name);
