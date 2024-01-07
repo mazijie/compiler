@@ -50,7 +50,7 @@ public class Compiler {
 
             //中间代码生成
             if(!Config.llvm_optimize){
-                Visitor.visitCompUnit(Parser.compUnit);
+                VisitorOP.visitCompUnit(Parser.compUnit);
                 if(Config.target==Target.LLVM){
                     Visitor.printResult();
                     return;

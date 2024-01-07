@@ -49,12 +49,14 @@ public class Value{
     }
     public double getNeighborDegree(){
         //平均相邻度数
-        int sum = 0;
-        for(Value neighbor:tmpCrash){
-            sum+=neighbor.getCrashAmount();
-        }
-        return 1.0*sum/getCrashAmount()-loopFloor*Config.loopWeight;
+        return 1.0/getCrashAmount();
+//        int sum = 0;
+//        for(Value neighbor:tmpCrash){
+//            sum+=neighbor.getCrashAmount();
+//        }
+//        return 1.0*sum/getCrashAmount()-loopFloor*Config.loopWeight;
     }
     public int loopFloor;//循环层级
     public Register registerAssigned;//分配好的寄存器，但是可能为null
+    public boolean isAddressMode;//是否是地址模式
 }

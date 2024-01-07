@@ -847,6 +847,55 @@ public class VisitorOP {
         List<MulExp> mulExps=new ArrayList<>();
         List<Token> op=new ArrayList<>();
         addMulExp(addExp,mulExps,op);
+//        int immPart = 0;
+//        Value firstVar=null;
+//        int index=0;
+//        for(index=0;index<mulExps.size();index++){
+//            Value v1 = visitMulExp(mulExps.get(index));
+//            if(v1 instanceof ConstInteger){
+//                if(index==0){
+//                    immPart+=((ConstInteger) v1).val;
+//                }else{
+//                    switch (op.get(index-1).getType()) {
+//                        case PLUS -> immPart+=((ConstInteger) v1).val;
+//                        case MINU -> immPart-=((ConstInteger) v1).val;
+//                    }
+//                }
+//            }else{
+//                firstVar = v1;
+//                break;
+//            }
+//        }
+//        if(firstVar==null){
+//            return IRBuildFactory.buildConstInt(immPart);
+//        }else{
+//            if(index>0&&op.get(index-1).getType()==TokenType.MINU){
+//                Value realFirst=IRBuildFactory.buildValue(curFunction.giveName(),ValueType._i32);
+//                IRBuildFactory.buildSUBInstruction(curBasicBlock,IRBuildFactory.buildConstInt(0),firstVar,realFirst);
+//                firstVar=realFirst;
+//            }
+//            for(index=index+1;index<mulExps.size();index++){
+//                Value v1 = visitMulExp(mulExps.get(index));
+//                if(v1 instanceof ConstInteger){
+//                    switch (op.get(index-1).getType()) {
+//                        case PLUS -> immPart+=((ConstInteger) v1).val;
+//                        case MINU -> immPart-=((ConstInteger) v1).val;
+//                    }
+//                }else{
+//                    Value new_var=IRBuildFactory.buildValue(curFunction.giveName(),ValueType._i32);
+//                    switch (op.get(index-1).getType()) {
+//                        case PLUS -> IRBuildFactory.buildADDInstruction(curBasicBlock, firstVar, v1, new_var);
+//                        case MINU -> IRBuildFactory.buildSUBInstruction(curBasicBlock, firstVar, v1, new_var);
+//                    }
+//                    firstVar=new_var;
+//                }
+//            }
+//        }
+//        if(immPart!=0){
+//            Value res=IRBuildFactory.buildValue(curFunction.giveName(),ValueType._i32);
+//            IRBuildFactory.buildADDInstruction(curBasicBlock,firstVar,IRBuildFactory.buildConstInt(immPart),res);
+//            return res;
+//        }else return firstVar;
         Value last_var=visitMulExp(mulExps.get(0));
         for(int i=1;i<mulExps.size();i++){
             Value v1=visitMulExp(mulExps.get(i));

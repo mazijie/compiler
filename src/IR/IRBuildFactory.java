@@ -97,6 +97,7 @@ public class IRBuildFactory {
     }
 
     public static void buildLOAD(BasicBlock curBasicBlock,Value loadto,VarPointer loadfrom){
+        if(loadto instanceof VarPointer) loadto.isAddressMode=true;
         LOAD load = new LOAD(curBasicBlock,loadto,loadfrom);
         curBasicBlock.addInstruction(load);
     }
@@ -139,11 +140,13 @@ public class IRBuildFactory {
 //    }
 
     public static void buildGETELEMENTPTR(BasicBlock curBasicBlock, VarPointer res, VarPointer array, Value offset,int type){
+        res.isAddressMode=true;
         curBasicBlock.addInstruction(new GETELEMENTPTR(curBasicBlock,res,array,offset,type));
 
     }
 
     public static void buildGETELEMENTPTR(BasicBlock curBasicBlock, VarPointer res, GlobalVar array, Value offset,int type){
+        res.isAddressMode=true;
         curBasicBlock.addInstruction(new GETELEMENTPTR(curBasicBlock,res,array,offset,type));
 
     }

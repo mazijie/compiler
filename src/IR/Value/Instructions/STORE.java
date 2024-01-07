@@ -18,7 +18,10 @@ public class STORE extends Instruction{
         {
             //优化部分
             this.whomIUse.add(v1);
-            this.whomIUse.add(v2);
+            if(v2.isAddressMode)
+                this.whomIUse.add(v2);
+            else
+                this.whomIDefine.add(v2);
 //            if(v1!=v2)
 //                this.whomIDefine.add(v2);
         }

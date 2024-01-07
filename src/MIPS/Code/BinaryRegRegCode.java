@@ -30,7 +30,7 @@ public class BinaryRegRegCode extends MIPSCode{
         SLT,//小于置1
         SGT,//大于置1
         SGE,//大于等于置1
-        ;
+        SRLV;//逻辑右移
         public String toString() {
             return this.name().toLowerCase();
         }

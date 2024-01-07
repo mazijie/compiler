@@ -53,9 +53,8 @@ public class IROptimizer {
             module.functions.removeIf(f -> !validFunctions.contains(f));
         }
 
-        //3.删除无用指令
 
-        //4.指令级活跃变量分析
+        //3.指令级活跃变量分析
         {
             for(Function f : module.functions){
                 //3-1.构建函数内指令级别的前后顺序关系
@@ -106,5 +105,18 @@ public class IROptimizer {
                 }
             }
         }
+
+//        //4.删除无用代码
+//        {
+//            for(Function f:module.functions){
+//                List<Instruction> useful=new ArrayList<>();
+//                List<Instruction> temp=new ArrayList<>();
+//                for(BasicBlock b: f.basicBlocks){
+//                    for(Instruction instruction: b.instructions){
+//
+//                    }
+//                }
+//            }
+//        }
     }
 }

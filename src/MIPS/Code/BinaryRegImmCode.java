@@ -31,6 +31,7 @@ public class BinaryRegImmCode extends MIPSCode{
         SLTI,//小于立即数置1
         SGT,//大于立即数置1
         SGE,//大于等于立即数置1
+        SRL,//逻辑右移指令，用于除法优化
         ;
         public String toString() {
             return this.name().toLowerCase();
@@ -66,6 +67,7 @@ public class BinaryRegImmCode extends MIPSCode{
                 case SLTI -> BinaryRegRegCode.Op.SLT;
                 case SGT -> BinaryRegRegCode.Op.SGT;
                 case SGE -> BinaryRegRegCode.Op.SGE;
+                case SRL -> BinaryRegRegCode.Op.SRLV;
             };
             BinaryRegRegCode code = new BinaryRegRegCode(rt,rs,r_tmp,rrop);
             code.print();
@@ -84,7 +86,16 @@ public class BinaryRegImmCode extends MIPSCode{
                 MoveCode moveCode = new MoveCode(RegisterManager.getZero(),rt);
                 moveCode.print();
                 return;
-            }else if(isNiceImmForMul(imm)>0){
+            }else if(imm==1){
+                MoveCode moveCode = new MoveCode(rs,rt);
+                moveCode.print();
+                return;
+            }else if(imm==-1){
+                BinaryRegRegCode minuscode = new BinaryRegRegCode(rt,RegisterManager.getZero(),rs, BinaryRegRegCode.Op.SUBU);
+                minuscode.print();
+                return;
+            }
+            else if(isNiceImmForMul(imm)>0){
                 int rank = isNiceImmForMul(imm);
                 BinaryRegImmCode sllcode = new BinaryRegImmCode(rt,rs,rank,Op.SLL);
                 sllcode.print();
@@ -112,36 +123,45 @@ public class BinaryRegImmCode extends MIPSCode{
                 IOUtils.write("\t"+op.toString()+" "+rt.name+", "+rs.name+", "+imm+"\n");
             }
         }
-//        else if(Config.mips_optimize&&op==DIV){
-//            //除法小优化,由于负数无法使用，作废
-//            if(imm==1){
-//                MoveCode moveCode=new MoveCode(rs,rt);
-//                moveCode.print();
-//                return;
-//            }else if(imm==-1){
-//                BinaryRegRegCode minuscode = new BinaryRegRegCode(rt,RegisterManager.getZero(),rs, BinaryRegRegCode.Op.SUBU);
-//                minuscode.print();
-//                return;
-//            }
-//            int base=1;
-//            int i;
-//            for(i=1;i<20;i++){
-//                base*=2;
-//                if(imm==base||imm+base==0){
-//                    break;
-//                }
-//            }
-//            if(i==20)
-//                IOUtils.write("\t"+op.toString()+" "+rt.name+", "+rs.name+", "+imm+"\n");
-//            else{
-//                BinaryRegImmCode sracode = new BinaryRegImmCode(rt,rs,i,SRA);
-//                sracode.print();
-//                if(imm<0){
-//                    BinaryRegRegCode minuscode = new BinaryRegRegCode(rt,RegisterManager.getZero(),rt, BinaryRegRegCode.Op.SUBU);
-//                    minuscode.print();
-//                }
-//            }
-//        }
+        else if(Config.mips_optimize&&op==DIV&&false){
+            //除法小优化,由于负数无法使用，作废
+            if(imm==1){
+                MoveCode moveCode=new MoveCode(rs,rt);
+                moveCode.print();
+                return;
+            }else if(imm==-1){
+                BinaryRegRegCode minuscode = new BinaryRegRegCode(rt,RegisterManager.getZero(),rs, BinaryRegRegCode.Op.SUBU);
+                minuscode.print();
+                return;
+            }
+            int base=1;
+            int i;
+            for(i=1;i<30;i++){
+                base*=2;
+                if(imm==base||imm+base==0){
+                    break;
+                }
+            }
+            if(i==30)
+                IOUtils.write("\t"+op.toString()+" "+rt.name+", "+rs.name+", "+imm+"\n");
+            else{
+                BinaryRegImmCode sracode = new BinaryRegImmCode(rt,rs,i,SRA);
+                sracode.print();
+                Register temp = Register.$a3;
+                BinaryRegImmCode srlcode = new BinaryRegImmCode(temp,rt,31,SRL);
+                srlcode.print();
+                BinaryRegRegCode addcode = new BinaryRegRegCode(rt,rt,temp, BinaryRegRegCode.Op.ADDU);
+                addcode.print();
+                if(imm<0) {
+                    BinaryRegImmCode minuscode = new BinaryRegImmCode(rt,rt,-1,MUL);
+                    minuscode.print();
+                }
+            }
+        }
+        else if(Config.mips_optimize&&op==SUBIU){
+            BinaryRegImmCode addcode = new BinaryRegImmCode(rt,rs,-1*imm,ADDIU);
+            addcode.print();
+        }
         else{
 
             IOUtils.write("\t"+op.toString()+" "+rt.name+", "+rs.name+", "+imm+"\n");
